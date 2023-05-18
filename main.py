@@ -2,9 +2,7 @@
 import psycopg2
 import telebot
 from telebot import types
-from request_functions import weather_today
-from request_functions import dog_picture_url
-from request_functions import my_ip
+from request_functions import (weather_today, dog_picture_url, my_ip)
 
 token = "6171321408:AAEk9DYD9nfus6kpRz0cpK21b2umByBkGp0"
 
@@ -53,8 +51,8 @@ def start(message):
 @bot.message_handler(commands=['timetable'])
 def timetable(message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
-    keyboard.add("Monday", "Tuesday", "/Wednesday", "/Thursday", "/Friday", "/Saturday", "/Sunday", "/Even_Week",
-                 "/Odd_Week", "/This_Week_Is", "/easter_eggs")
+    keyboard.add("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Even_Week",
+                 "Odd_Week", "This_Week_Is", "/easter_eggs")
     bot.send_message(message.chat.id, f'Таблица с расписанием', reply_markup=keyboard)
 
 
@@ -72,7 +70,7 @@ def easter_eggs(message):
     \nПоказать погоду в Москве(/Moscow_weather_today),\
     \nПоказать собаку(/Dog_picture),\
     \nПоказать ваш ip адресс(/My_ip),\
-    \nОткрать расписание(/Timetable)', reply_markup=keyboard)
+    \nОткрать расписание(/timetable)', reply_markup=keyboard)
 
 
 
